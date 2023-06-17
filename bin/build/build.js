@@ -1,25 +1,24 @@
-import path from 'path';
+import { CONFIG_FILEPATH, SRC_DIR } from './consts.js';
 import getSrcFilepaths from './getSrcFilepaths.js';
-import readFiles from './readFiles.js';
+import readFiles, { readJson } from './read.js';
+import resolveConfig from './resolveConfig.js';
 import writeOutput from './write.js';
 
-export default async function build() {
+export default async function build(program) {
   try {
-    const CWD = process.cwd();
-    const SRC_DIR = path.resolve(CWD, 'src');
+    const config = resolveConfig(await readJson(CONFIG_FILEPATH));
 
-    const OUT_DIR = path.resolve(CWD, 'out');
-    const OUT_FILENAME = 'output.fountain';
+    const filepaths = await getSrcFilepaths(program, config.srcDir);
 
-    const filepaths = await getSrcFilepaths(SRC_DIR);
+    // Process files -> return [[content], [meta]]
     const fileContents = await readFiles(filepaths);
 
     // TODO: add final newline to all if not last char
-    const output = fileContents.join('\n\n');
+    const outputContent = fileContents.join('\n');
 
     // write
-    writeOutput(OUT_DIR, OUT_FILENAME, output);
+    writeOutput(config.outputFilepath, outputContent);
   } catch (e) {
-    console.error(e);
+    program.error(e.message);
   }
 }

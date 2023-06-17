@@ -11,6 +11,9 @@ program
   .command('build')
   .alias('b')
   .description('Transpile source files to output directory')
-  .action(build);
+  .action(() => build(program));
 
-program.parse(process.argv);
+program.showHelpAfterError(
+  '\n[TIP] Append "--help" for additional information'
+);
+program.parse();

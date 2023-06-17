@@ -1,12 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 
-export default async function writeOutput(dir, filename, content) {
+export default async function writeOutput(filepath, content) {
+  // mkdir if not exists
+  const { dir } = path.parse(filepath);
+
   if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+    fs.mkdirSync(dir, { recursive: true });
   }
 
-  const filepath = path.resolve(dir, filename);
+  // write
   fs.writeFileSync(filepath, content);
   console.log('Successfully transpiled to ' + filepath);
 }

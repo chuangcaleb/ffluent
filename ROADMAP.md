@@ -8,6 +8,7 @@
     - flow variants: basic writer / advanced technical
     - config file (commented out)
     - ? git
+      - checkin output dir?
     - ? template: (3-Act, !4-Act, 5-Act, 6-Act, 12-Point Hero’s Journey)
   - Use `inquirer` package
   - Throw warnings to not overwrite files
@@ -44,3 +45,8 @@
 ```
 
 (_meta.json)(<https://nextra.site/docs/guide/organize-files>)
+
+yaml
+
+- allows comments
+- more intuitive for non-technical users

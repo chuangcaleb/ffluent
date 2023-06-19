@@ -1,4 +1,3 @@
-
 # `ffluent`
 
 <img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
@@ -17,7 +16,7 @@ I expect the average `ffluent` user to be a non-technical screenwriter, so I'll 
 
 **[Fountain](https://www.fountain.io)** is the perfect screenwriting tool: it is *a simple **markup syntax** that allows screenplays to be written, edited, and shared in plain, human-readable text*.
 
-<pre style='white-space:pre-wrap'>
+```fountain
 EXT. WET MARKET - DAY
 
 The stalls and crowds pack the LABYRINTHIAN plaza like sardines. Merchants periodically CRY their latest bargains aloud.
@@ -25,7 +24,7 @@ The stalls and crowds pack the LABYRINTHIAN plaza like sardines. Merchants perio
 JOE
 (half-shouting)
 How are we supposed to find Uncle Ken in here?
-</pre>
+```
 
 > tl;dr, [Markup files](https://www.markdownguide.org/getting-started/#why-use-markdown) are **Versatile** + **Portable** + **Robust** + **Future-proof**. [Fountain](https://www.fountain.io) is **non-proprietary** and **[intuitive](https://fountain.io/syntax/)** to use. It is **easily exported** to `.pdf`, `.fdx`, and more.
 
@@ -194,7 +193,9 @@ Advanced, you can bind this to a hotkey with VS Code Tasks.
 
 ### Why the name, "ffluent"?
 
-The keyword I chose was **confluent**, defined as:
+It had all started with the image of fountain streams, all collecting and converging together.
+
+I found the word for this is **confluent**, defined as:
 
 > **confluent** (adjective)
 > marked by or exhibiting **confluence**;
@@ -202,14 +203,16 @@ The keyword I chose was **confluent**, defined as:
 >
 > – [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
 
-The purpose of `ffluent` is to bundle atomic files together into one main output file, so this seemed like a fitting choice.
+The purpose of `ffluent` is to bundle atomic files together into one main output file, so this seemed like a fitting choice. [Peter Randall-Page's sculpture entitled "Fountain Confluence"](https://kusserusa.com/portfolio/confluence-brunnen) is exactly what I had envisioned in mind.
 
-But Confluence and Confluent are already trademarked names. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to simply "fluent".
+But all the dictionary words are already trademarked names. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to simply "fluent".
 
 This adds a second layer of connection: being "fluent" means to be highly skilled (in speaking a language), while screenplays are linguistic works.
 
-And finally, to add the connection with Fountain. I had candidates for project names, like "fountain-confluent" (the official verbose-name of the project) and "founfluent". But since "fluent" starts with an *F*, the same letter as "Fountain", I've elected to go for a simple `ffluent`.
+And finally, to add the connection with Fountain. I had candidates for project names, like "fountain-confluent" (the official verbose-name of the project) and "founfluent". But since "fluent" starts with an *F*, the same letter as "Fountain", I've elected to go for the simpler `ffluent`.
 
-Adding the extra "f" also makes the project stand out amongst other similar-named projects and search engine results!
+Then, adding the extra "f" to `ffluent` also makes the project stand out amongst other similar-named projects and search engine results!
+
+The logo captures that initial image of streams flowing and converging into one main stream. It was clearer to see in the first design iteration, that the streams are actually back-to-back capital letter F's, where their bases converge. I also find myself preferring dividing my story and source directory into four main folders for the 4-act structure, so I actually have four streams converging into one main one!
 
 <!-- ### Contributing -->

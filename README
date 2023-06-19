@@ -1,8 +1,15 @@
+
 # `ffluent`
+
+<img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
 
 > CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files
 
-I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need!
+I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
+
+> **`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
+>
+> Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and other Quality-of-Life bells and whistles.
 
 ## Purpose
 
@@ -39,39 +46,105 @@ This is where `ffluent` comes in.
 
 To combat the issues above, we introduce the concept of the [single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): instead of **one large** entity/file having a hundred roles — *instead, we should have **one hundred smaller** components that have a **single responsibility each**.* This is great, because now each component is **atomic** and **modular**.
 
+However, if all our content is spread out across different `.fountain` files, how are we going to assemble them together? There is solved with the coding practice of using [bundlers](https://snipcart.com/blog/javascript-module-bundler). *Bundlers organize and combine many files of code into one file.*
+
+> **`ffluent` is simply a Command Line Interface (CLI) that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
+
+That's the main idea.
+
+Of course, there are simple configurations you obviously need to set, like organizing sequence of scenes, and other Quality-of-Life bells and whistles.
+
+<!-- ### The benefits
+
 That is, instead of writing everything in one long `.fountain` file, it would save you a lot of time and management effort if you split your screenplay across multiple files. Perhaps one file is dedicated to one scene. Now:
 
-- Each scene can be *identified and evaluated **individually***
+- Each scene can be ***identified** and **evaluated** individually*
   - Then it's clearer to spot errors/weaknesses, or to spot promising scenes for further development
-  Furthermore, since each scene is now a separate file, you can track their metadata separately, like *file size* and *last modified*
+  - Furthermore, since each scene is now a separate file, you can track their metadata separately, like *file size* and *last modified*
 - Each scene/section can *easily be **compared***
   - You can compare files size-by-side in a split editor. You can quickly tell when one scene is way longer than another.
-- Each scene/section can
+- Each scene/section can *trivially be **plug-and-play***
+  - With quick simple tweaks to a configuration/layout utility file, you can make big changes to your final product:
+    - Exclude/include individual scenes by commenting out lines of text
+    - Swap scene order by swapping lines of text
+    - Manage different versions of scene sequences
+    - And you can do this at whatever level of abstraction you have:
+
 - semantic naming for each component
 
-  -
-
- <!-- [bundling](https://snipcart.com/blog/javascript-module-bundler). *"Bundlers organize and combine many files of code into one file."* -->
+  - -->
 
 ...
 
 ## Installation
 
-It is recommended that you use the following tools
+### Pre-requisites
 
-- [Markdown](https://www.markdownguide.org/getting-started/)
-- [VS Code](https://code.visualstudio.com/)
-  - A text editor. *THE* text editor.
-  - Usually used for coding, as I've
+You will need to understand the following before proceding:
+
+- [Fountain](https://www.markdownguide.org/getting-started/)
+  - A simple markup syntax that allows screenplays to be written, edited, and shared in plain, human-readable text
+  - `ffluent` completely relies on this. Read their example `.fountain` screenplays to first get fluent in the language!
+- [Node.js](https://www.freecodecamp.org/news/how-to-install-node-js-and-npm-on-windows-2/)
+  - One of the most popular coding "runtime environments"
+  - This is what allows you to effortlessly install `ffluent`, get updates and actually run `ffluent`
+
+It is recommended that you use (and get used to) the following tools. You don't need them, but `ffluent` was built to be used with these tools in mind:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+  - A text editor. *THE* text editor. You can use Notepad. But life can be better.
+  - Usually used for coding, as for my day job. But it's so versatile.
 - [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
+  - An extension for Visual Studio Code which supercharges it with features to boost the Fountain screenplays writing experience.
 
 ### Quick Start
+
+1. Open [VS Code's integrated terminal](https://code.visualstudio.com/docs/terminal/basics), or a Command Prompt/Terminal app of your choice.
+
+2. Ensure Node.js is installed. Type the following text and enter it:
+
+```sh
+node -v
+# If Node is installed, you should get a response that looks like this:
+# v20.2.0
+```
+
+3. Navigate to or create the file directory that you want to use as your workspace.
+
+- In VS Code, just use the `File: Open Folder` command
+- In a Terminal, you will need to use the `cd` command
+
+4. Install `ffluent` in your workspace. It will take a moment to download.
+
+```sh
+npm install ffluent
+```
+
+5. Write some `.fountain` files in your `./src` directory!
+
+<!-- 5. Initialize your workspace with a template (optional, but recommended)
+
+```sh
+npm run ffluent init
+``` -->
+6. Run the bundle command
+
+```sh
+npx ffluent bundle
+```
+<!-- Use `npm run bundle` if you have a package.json -->
+Advanced, you can bind this to a hotkey with VS Code Tasks.
 
 ## Features
 
 ### `ffluent bundle` : Combine Fountain files
 
 ### `ffluent init` : Initialize project workspace
+
+<!-- TODO: ### The `ffluent` workspace
+
+```filetree
+``` -->
 
 ### What `ffluent` isn't
 
@@ -84,24 +157,29 @@ It is recommended that you use the following tools
 
 **Use `ffluent` if:**
 
-- 🎬 You are writing a feature-length screenplay
+- 🎬 **You are writing a feature-length screenplay**
   - You will definitely be thankful when you're barely halfway at Page 50 with 10k+ words and 100 plot threads to weave
-- 🆓 You are broke. Or cheap. Or both.
-  - Free. Markdown is free. Fountain is free. VS Code is free. Better Fountain is free. `ffluent` is free. You just need to learn.
-- 👩‍🎓 You have *some* technical programming knowledge/experience
-  - You will need to do some extra readings
-- 🤓 You have *advanced* technical programming knowledge/experience
-  - The `ffluent` workflow will feel right at home, as it does for me. You'll be able to take advantage of tools like `git` and `Find and Replace (Regex)`! Plus, what paid software can beat your keybind-supercharged VS Code.
-- ⛲️ You already use Fountain
+- 🆓 **You are broke. Or cheap. Or both.**
+  - Free. Markdown is free. Fountain is free. VS Code is free. Better Fountain is free. `ffluent` is free. You just need to learn ;)
+- 🔧 **You have *some* technical programming knowledge/experience**
+  - You will need to do some extra readings and step outside of your comfort zone,
+- 🛠️ **You have *advanced* technical programming knowledge/experience**
+  - The `ffluent` workflow will feel right at home for you, as it does for me
+  - You'll be able to take advantage of tools like `git` and `Find and Replace (Regex)`!
+  - Plus, what paid software can beat your keybind-supercharged IDE.
+- 👥 **You can get help from someone who has technical programming knowledge/experience**
+  - Honestly, it's the setup that seems the most daunting. But it's just a few trivial keystrokes for someone who's familiar with code.
+  - Read through this whole document together, and get guidance on how to crucial tasks! You'll be a wiz in no time!
+- ⛲️ **You already use Fountain**
   - You know all the insane benefits of a markup syntax. You understand the struggle of vanilla Fountain. You are willing to learn something new to take it to the next level.
 
 **Don't use `ffluent` if:**
 
-- 🩳 You are writing a 2-10 minute short
+- 🩳 **You are writing a 2-10 minute short**
   - Just use one `.fountain` file. Anything more is over-engineering
-- 💰 You have money to splurge
-  - Yea, knock yourself out with some big proprietary product like Final Draft. Unless you enjoy the writing experience with `ffluent` better.
-- 👵 You've never used the Terminal prompt in your life
+- 💰 **You have money to splurge**
+  - Yea, knock yourself out with some big proprietary product's monthly subscription. Seriously, they're paid and industry standard for a reason. Unless you enjoy the writing experience with `ffluent` better. I do.
+- 👵 **You've never touched the Terminal prompt in your life**
   - If you have a bad track record with technology, then you may want to give this a pass! I know arts and coding are very uncommon pairings. Try out Google Docs instead of Microsoft Word!
 
 ### Advanced Use Cases
@@ -116,21 +194,22 @@ It is recommended that you use the following tools
 
 ### Why the name, "ffluent"?
 
-I had three criteria for choosing a project title, in order of priority:
+The keyword I chose was **confluent**, defined as:
 
-1. meaningful/appropriate to its purpose
-2. tied-in with the "Fountain" branding
-3. sounds catchy
-
-#### 1. Meaning
-
-The keyword here is **confluent**, defined as:
-
+> **confluent** (adjective)
 > marked by or exhibiting **confluence**;
 > *flowing together* or *coming together*
 >
-> \- [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
+> – [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
 
-The purpose of `ffluent` is to bundle atomic files
+The purpose of `ffluent` is to bundle atomic files together into one main output file, so this seemed like a fitting choice.
 
-### Contributing
+But Confluence and Confluent are already trademarked names. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to simply "fluent".
+
+This adds a second layer of connection: being "fluent" means to be highly skilled (in speaking a language), while screenplays are linguistic works.
+
+And finally, to add the connection with Fountain. I had candidates for project names, like "fountain-confluent" (the official verbose-name of the project) and "founfluent". But since "fluent" starts with an *F*, the same letter as "Fountain", I've elected to go for a simple `ffluent`.
+
+Adding the extra "f" also makes the project stand out amongst other similar-named projects and search engine results!
+
+<!-- ### Contributing -->

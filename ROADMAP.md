@@ -31,6 +31,7 @@
   - enabled: whether output has nested sections (true)
   - nestedOutputTitleTemplate: “projectTitleOnly” | “sectionTitleOnly” | “both” (“both”)
   - nestedOutputTitleSeparator: separator to use between components, if plural “ - ”
+  - last modified metadata
 - useLatestDate: uses the latest date of atomic file // use last modified
 - stats: metadata stats for different sections
 - prefixHeadings

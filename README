@@ -1,5 +1,7 @@
 # `ffluent`
 
+<img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
+
 > CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files
 
 I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
@@ -51,7 +53,8 @@ That's the main idea.
 
 Of course, there are simple configurations you obviously need to set, like organizing sequence of scenes, and other Quality-of-Life bells and whistles.
 
-<!-- ### The benefits
+<!--
+### The benefits
 
 That is, instead of writing everything in one long `.fountain` file, it would save you a lot of time and management effort if you split your screenplay across multiple files. Perhaps one file is dedicated to one scene. Now:
 
@@ -68,8 +71,7 @@ That is, instead of writing everything in one long `.fountain` file, it would sa
     - And you can do this at whatever level of abstraction you have:
 
 - semantic naming for each component
-
-  - -->
+-->
 
 ...
 
@@ -138,10 +140,7 @@ Advanced, you can bind this to a hotkey with VS Code Tasks.
 
 ### `ffluent init` : Initialize project workspace
 
-<!-- TODO: ### The `ffluent` workspace
-
-```filetree
-``` -->
+<!-- TODO: ### The `ffluent` workspace -->
 
 ### What `ffluent` isn't
 

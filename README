@@ -1,7 +1,5 @@
 # `ffluent`
 
-<img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
-
 > CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files
 
 I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
@@ -16,7 +14,7 @@ I expect the average `ffluent` user to be a non-technical screenwriter, so I'll 
 
 **[Fountain](https://www.fountain.io)** is the perfect screenwriting tool: it is *a simple **markup syntax** that allows screenplays to be written, edited, and shared in plain, human-readable text*.
 
-```fountain
+<pre style='white-space:pre-wrap'>
 EXT. WET MARKET - DAY
 
 The stalls and crowds pack the LABYRINTHIAN plaza like sardines. Merchants periodically CRY their latest bargains aloud.
@@ -24,7 +22,7 @@ The stalls and crowds pack the LABYRINTHIAN plaza like sardines. Merchants perio
 JOE
 (half-shouting)
 How are we supposed to find Uncle Ken in here?
-```
+</pre>
 
 > tl;dr, [Markup files](https://www.markdownguide.org/getting-started/#why-use-markdown) are **Versatile** + **Portable** + **Robust** + **Future-proof**. [Fountain](https://www.fountain.io) is **non-proprietary** and **[intuitive](https://fountain.io/syntax/)** to use. It is **easily exported** to `.pdf`, `.fdx`, and more.
 

@@ -4,7 +4,7 @@ import readFiles, { readJson } from './read.js';
 import resolveConfig from './resolveConfig.js';
 import writeOutput from './write.js';
 
-export default async function build(program) {
+export default async function bundle(program) {
   try {
     const config = resolveConfig(await readJson(CONFIG_FILEPATH));
 

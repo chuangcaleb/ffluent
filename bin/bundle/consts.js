@@ -2,7 +2,7 @@ import path from 'path';
 
 const SRC = 'src';
 const OUT = 'out';
-const CONFIG = 'spillway.json';
+const CONFIG = 'ffluent.json';
 export const OUT_FILENAME = 'output.fountain';
 
 export const CWD = process.cwd();

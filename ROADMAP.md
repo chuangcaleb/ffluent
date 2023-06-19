@@ -1,5 +1,7 @@
 
-# spillway
+# ffluent
+
+## CLI
 
 - init
   - initialise a workspace
@@ -12,13 +14,13 @@
     - ? template: (3-Act, !4-Act, 5-Act, 6-Act, 12-Point Hero’s Journey)
   - Use `inquirer` package
   - Throw warnings to not overwrite files
-- build
+- bundle
   - compile files
-  - VS Code to watch for event and run BetterFountain build PDF script
+  - VS Code to watch for event and run BetterFountain bundle PDF script
 - options
   - verbosity: error/warning/info/silent
 
-.spillway.config
+## .ffluent.config options
 
 - title: project title !(My Story)
 - output: output dir (out/[projectName].fountain)
@@ -46,7 +48,10 @@
 
 (_meta.json)(<https://nextra.site/docs/guide/organize-files>)
 
-yaml
+## TODO
 
-- allows comments
-- more intuitive for non-technical users
+- Handle yaml
+  - allows comments
+  - more intuitive for non-technical users
+- JSON schema
+- require other .fountain files

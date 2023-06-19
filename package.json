@@ -1,11 +1,11 @@
 {
-  "name": "spillway",
+  "name": "ffluent",
   "type": "module",
   "version": "0.1.0",
-  "description": "CLI to transpile atomic Fountain screenplay files",
+  "description": "CLI to bundle atomic Fountain screenplay files",
   "main": "index.js",
   "bin": {
-    "spillway": "bin/index.js"
+    "ffluent": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

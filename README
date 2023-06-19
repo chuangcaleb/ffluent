@@ -1,14 +1,16 @@
-# spillway
+# `ffluent`
 
-> CLI to transpile atomic [Fountain](https://www.fountain.io) screenplay files
+> CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files
 
-Don't know what that means? Are you non-technical? I'll explain in layman terms – it may just be exactly what you need!
+I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need!
 
 ## Purpose
 
-After evaluating many other screenwriting tools, I've found the [Fountain](https://www.fountain.io) format to be exactly what I was looking for. Fountain is *a simple markup syntax that allows screenplays to be written, edited, and shared in plain, human-readable text*.
+### The problem
 
-<pre language='fountain' style='white-space:pre-wrap'>
+**[Fountain](https://www.fountain.io)** is the perfect screenwriting tool: it is *a simple **markup syntax** that allows screenplays to be written, edited, and shared in plain, human-readable text*.
+
+<pre style='white-space:pre-wrap'>
 EXT. WET MARKET - DAY
 
 The stalls and crowds pack the LABYRINTHIAN plaza like sardines. Merchants periodically CRY their latest bargains aloud.
@@ -18,9 +20,9 @@ JOE
 How are we supposed to find Uncle Ken in here?
 </pre>
 
-> tl;dr, *markup files* are **Versatile** + **Portable** + **Robust** + **Future-proof**. [Fountain](https://www.fountain.io) is **open-source** and **[intuitive](https://fountain.io/syntax/)** to use. It is **easily exported** to `.pdf`, `.fdx`, and more.
+> tl;dr, [Markup files](https://www.markdownguide.org/getting-started/#why-use-markdown) are **Versatile** + **Portable** + **Robust** + **Future-proof**. [Fountain](https://www.fountain.io) is **non-proprietary** and **[intuitive](https://fountain.io/syntax/)** to use. It is **easily exported** to `.pdf`, `.fdx`, and more.
 
-The only roadblock for me is that you are required by Fountain's workflow design to have your entire script to be in one single `.fountain` file. A typical 2-hour movie screenplay is about **120 pages long**. What I've noticed was:
+The only roadblock for me is that you are required by Fountain's workflow design to have your entire script to be in a single `.fountain` file. In practice, a typical 2-hour movie screenplay is about **120 pages long**. What I've noticed was:
 
 - To compare scenes:
   - Random scrolling to arbitrary locations, back and forth
@@ -29,9 +31,27 @@ The only roadblock for me is that you are required by Fountain's workflow design
 - To temporarily stash currently-unused/incompatible scenes that may have potential, or at least to keep as reference:
   - Commenting/boneyard-ing out, or dumping aside, entire sections into another text file, hard to keep track of what is where
 
-> This is where `spillway` comes in.
+This is where `ffluent` comes in.
 
-`spillway` is an extension of the Fountain workflow that incorporates programming paradigms/principles. The main concept is to use
+### The solution
+
+> `ffluent` is an **extension**, a **superset** of the Fountain workflow that is supercharged with *programming principles*.
+
+To combat the issues above, we introduce the concept of the [single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): instead of **one large** entity/file having a hundred roles — *instead, we should have **one hundred smaller** components that have a **single responsibility each**.* This is great, because now each component is **atomic** and **modular**.
+
+That is, instead of writing everything in one long `.fountain` file, it would save you a lot of time and management effort if you split your screenplay across multiple files. Perhaps one file is dedicated to one scene. Now:
+
+- Each scene can be *identified and evaluated **individually***
+  - Then it's clearer to spot errors/weaknesses, or to spot promising scenes for further development
+  Furthermore, since each scene is now a separate file, you can track their metadata separately, like *file size* and *last modified*
+- Each scene/section can *easily be **compared***
+  - You can compare files size-by-side in a split editor. You can quickly tell when one scene is way longer than another.
+- Each scene/section can
+- semantic naming for each component
+
+  -
+
+ <!-- [bundling](https://snipcart.com/blog/javascript-module-bundler). *"Bundlers organize and combine many files of code into one file."* -->
 
 ...
 
@@ -49,10 +69,68 @@ It is recommended that you use the following tools
 
 ## Features
 
-### `spillway build` : Combine Fountain files
+### `ffluent bundle` : Combine Fountain files
 
-### `spillway init` : Initialize project workspace
+### `ffluent init` : Initialize project workspace
+
+### What `ffluent` isn't
+
+- replacement for Fountain
+- text editor (VS Code)
+- Export to PDF
+- Version control
+
+## Use Cases
+
+**Use `ffluent` if:**
+
+- 🎬 You are writing a feature-length screenplay
+  - You will definitely be thankful when you're barely halfway at Page 50 with 10k+ words and 100 plot threads to weave
+- 🆓 You are broke. Or cheap. Or both.
+  - Free. Markdown is free. Fountain is free. VS Code is free. Better Fountain is free. `ffluent` is free. You just need to learn.
+- 👩‍🎓 You have *some* technical programming knowledge/experience
+  - You will need to do some extra readings
+- 🤓 You have *advanced* technical programming knowledge/experience
+  - The `ffluent` workflow will feel right at home, as it does for me. You'll be able to take advantage of tools like `git` and `Find and Replace (Regex)`! Plus, what paid software can beat your keybind-supercharged VS Code.
+- ⛲️ You already use Fountain
+  - You know all the insane benefits of a markup syntax. You understand the struggle of vanilla Fountain. You are willing to learn something new to take it to the next level.
+
+**Don't use `ffluent` if:**
+
+- 🩳 You are writing a 2-10 minute short
+  - Just use one `.fountain` file. Anything more is over-engineering
+- 💰 You have money to splurge
+  - Yea, knock yourself out with some big proprietary product like Final Draft. Unless you enjoy the writing experience with `ffluent` better.
+- 👵 You've never used the Terminal prompt in your life
+  - If you have a bad track record with technology, then you may want to give this a pass! I know arts and coding are very uncommon pairings. Try out Google Docs instead of Microsoft Word!
+
+### Advanced Use Cases
+
+- git
+  - git branches
+
+### Similar Projects + Alternatives
+
+- Highland 2
+- Obsidian
+
+### Why the name, "ffluent"?
+
+I had three criteria for choosing a project title, in order of priority:
+
+1. meaningful/appropriate to its purpose
+2. tied-in with the "Fountain" branding
+3. sounds catchy
+
+#### 1. Meaning
+
+The keyword here is **confluent**, defined as:
+
+> marked by or exhibiting **confluence**;
+> *flowing together* or *coming together*
+>
+> \- [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
+
+The purpose of `ffluent` is to bundle atomic files
 
 ### Contributing
-
-### Why the name, "spillway"?

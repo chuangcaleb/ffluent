@@ -11,5 +11,5 @@ export default async function writeOutput(filepath, content) {
 
   // write
   fs.writeFileSync(filepath, content);
-  console.log('Successfully transpiled to ' + filepath);
+  console.log('Successfully bundled to ' + filepath);
 }

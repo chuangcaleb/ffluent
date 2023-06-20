@@ -1,14 +1,14 @@
-# `ffluent`
-
 <img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
 
-> CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files
+# `ffluent`
+
+**CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files**
 
 I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
 
-> **`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
->
-> Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and other Quality-of-Life bells and whistles.
+**`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
+
+Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and other Quality-of-Life bells and whistles.
 
 ## Purpose
 

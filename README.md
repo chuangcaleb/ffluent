@@ -6,12 +6,12 @@
 
  <br />
 
-I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
+> I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
 
-|**`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**|
+|**`ffluent` is a tool that automatically combines multiple smaller `.fountain` files.**|
 |-|
 
-Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and other Quality-of-Life bells and whistles.
+<!-- Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and you get to take advantage of other Quality-of-Life bells-and-whistles. -->
 
 ## Purpose
 
@@ -51,12 +51,12 @@ To combat the issues above, we introduce the concept of the [single-responsibili
 
 However, if all our content is spread out across different `.fountain` files, how are we going to assemble them together? There is solved with the coding practice of using [bundlers](https://snipcart.com/blog/javascript-module-bundler). *Bundlers organize and combine many files of code into one file.*
 
-| **`ffluent` is simply a Command Line Interface (CLI) that automatically combines multiple `.fountain` files into one main `output.fountain` file.**|
+| **`ffluent` is simply a Command Line Interface (CLI) tool that automatically organizes and combines multiple `.fountain` files into one main `output.fountain` file.**|
 |-|
 
-That's the main idea.
+That's the main idea. And it's dead simple to actually implement.
 
-Of course, there are simple configurations you obviously need to set, like organizing sequence of scenes, and other Quality-of-Life bells and whistles.
+Of course, there are simple configurations you obviously need to set, like organizing *sequence of scenes*, and other Quality-of-Life bells-and-whistles.
 
 <!--
 ### The benefits
@@ -141,18 +141,31 @@ Advanced, you can bind this to a hotkey with VS Code Tasks.
 
 ### `ffluent bundle` : Combine Fountain files
 
+**Combines together and organizes *source files*, then writes the product to a *destination directory*.**
+
 ### `ffluent init` : Initialize project workspace
+
+**Scaffolds the project workspace according to a template.**
+
+Still WIP.
 
 <!-- TODO: ### The `ffluent` workspace -->
 
-### What `ffluent` isn't
+### What `ffluent` isn't/doesn't have — and what you may need
 
-- replacement for Fountain
-- text editor (VS Code)
-- Export to PDF
-- Version control
+**A substitute for Fountain.**
+In fact, it's encouraged that if you only have 5-10 pages of script, just go vanilla and use a long `.fountain` file. But if you want more fine-grained control, you will need to first be fluent in Fountain, before `ffluent` makes any sense. Think of `ffluent` to Fountain as french fries are to raw potatoes.
 
-## Use Cases
+**A text editor / an application**.
+`ffluent` is not concerned how you produce your source files; its sole (single)-responsibility is to bundle them. There are many great text editor applications out there, like [VS Code](https://code.visualstudio.com/).
+
+**An Export to PDF function**
+Again, there are already many great existing "`.fountain` to `.?????`" converters/exporters out there. I'm personally using Better Fountain's as it's part of my workflow. It's on the Roadmap to find some way to "*hook*" onto an external tool automatically as part of the `ffluent` workflow.
+
+**A version control feature**
+Many paid proprietary tools offer version control/backups. As a programmer, we are familiar with `git`, a technical, fine-grained version control tool. But if you're less technical, [Google Drive for Desktop](https://www.google.com/drive/download/) and [Dropbox Backup](https://www.dropbox.com/backup) are amazing non-technical solutions for syncing specific file directories to the cloud.
+
+## Is `ffluent` for you?
 
 **Use `ffluent` if:**
 
@@ -181,19 +194,23 @@ Advanced, you can bind this to a hotkey with VS Code Tasks.
 - 👵 **You've never touched the Terminal prompt in your life**
   - If you have a bad track record with technology, then you may want to give this a pass! I know arts and coding are very uncommon pairings. Try out Google Docs instead of Microsoft Word!
 
-### Advanced Use Cases
+<!-- ### Advanced Use Cases
 
 - git
   - git branches
+-->
 
 ### Similar Projects + Alternatives
 
-- Highland 2
-- Obsidian
+- [Highland 2](https://www.highland2.app/)
+  - Made by the creator of Fountain itself. Features its own text editor app, WYSIWYG, "Revision Mode" and analysis tools. Since everything is wrapped in a nice bow, it's probably the best Fountain-writing app if you're not technical.
+- [Obsidian](https://obsidian.md/)
+  - You can take the `ffluent` workflow even further with `[[ links ]]` to reference markdown notes. And then the idea is that you have `.fountain` files in your Obsidian workspace as notes themselves. Everything interlinks.
+  - Have yet to try this out, but I think this is the next step going forward.
 
 ### Why the name, "ffluent"?
 
-It had all started with the image of fountain streams, all collecting and converging together.
+It had all started with the image of **converging fountain streams**.
 
 I found the word for this is **confluent**, defined as:
 
@@ -203,7 +220,7 @@ I found the word for this is **confluent**, defined as:
 >
 > – [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
 
-The purpose of `ffluent` is to bundle atomic files together into one main output file, so this seemed like a fitting choice. [Peter Randall-Page's sculpture entitled "Fountain Confluence"](https://kusserusa.com/portfolio/confluence-brunnen) is exactly what I had envisioned in mind.
+**The purpose of `ffluent` is to bundle atomic files together into one main output file**, so this seemed like a fitting choice. [Peter Randall-Page's sculpture entitled "Fountain Confluence"](https://kusserusa.com/portfolio/confluence-brunnen) is exactly what I had envisioned in mind.
 
 But all the dictionary words are already trademarked names. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to simply "fluent".
 

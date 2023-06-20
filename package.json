@@ -22,6 +22,7 @@
   "author": "chuangcaleb",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.2.0",
     "commander": "^11.0.0",
     "prettier": "^2.8.8"
   },

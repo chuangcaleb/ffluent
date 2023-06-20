@@ -131,6 +131,7 @@ npm run ffluent init
 ``` -->
 6. Run the bundle command
 
+<!-- TODO: correct npx vs npm run, when ffluent init always ensures a lifecycle script -->
 ```sh
 npx ffluent bundle
 ```

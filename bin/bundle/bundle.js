@@ -1,4 +1,5 @@
-import { CONFIG_FILEPATH, SRC_DIR } from './consts.js';
+import chalk from 'chalk';
+import { CONFIG_FILEPATH } from './consts.js';
 import getSrcFilepaths from './getSrcFilepaths.js';
 import readFiles, { readJson } from './read.js';
 import resolveConfig from './resolveConfig.js';
@@ -19,6 +20,6 @@ export default async function bundle(program) {
     // write
     writeOutput(config.outputFilepath, outputContent);
   } catch (e) {
-    program.error(e.message);
+    program.error(chalk.red(chalk.bgRed(' ERR ') + ' ' + e.message));
   }
 }

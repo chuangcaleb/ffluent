@@ -1,7 +1,11 @@
 import fs from 'fs';
 
 function readFile(filepath) {
-  return fs.readFileSync(filepath, 'utf-8');
+  try {
+    return fs.readFileSync(filepath, 'utf-8');
+  } catch (e) {
+    throw new Error(`An expected file was not found at ${filepath}`);
+  }
 }
 
 export default async function readFiles(filepaths) {

@@ -13,7 +13,7 @@
       - checkin output dir?
     - ? template: (3-Act, !4-Act, 5-Act, 6-Act, 12-Point Hero’s Journey)
   - Use `inquirer` package
-  - Throw warnings to not overwrite files
+  - Throw warnings to if not empty directory
 - bundle
   - compile files
   - VS Code to watch for event and run BetterFountain bundle PDF script
@@ -37,7 +37,7 @@
 - prefixHeadings
 - slugify 'title' | [depths, where neg is reverse direction] | all | none (none)
 
-> use {NAME} format for templating
+> use `{NAME}` format for templating
 
 ```js
 "[fountain]": {

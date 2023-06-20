@@ -1,12 +1,15 @@
-<img align="left" width="100" src="./logo/ffluent-v1.svg" style='padding:20px'>
+<img align="left" width="130" src="./logo/ffluent-v1.svg"/>
 
 # `ffluent`
 
 **CLI to bundle atomic [Fountain](https://www.fountain.io) screenplay files**
 
+ <br />
+
 I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
 
-**`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
+|**`ffluent` is a tool that automatically combines multiple `.fountain` files into one main `output.fountain` file.**|
+|-|
 
 Of course, there are simple configurations you obviously need to set, like *organizing sequence of scenes*, and other Quality-of-Life bells and whistles.
 
@@ -41,13 +44,15 @@ This is where `ffluent` comes in.
 
 ### The solution
 
-> `ffluent` is an **extension**, a **superset** of the Fountain workflow that is supercharged with *programming principles*.
+| `ffluent` is an **extension**, a **superset** of the Fountain workflow that is supercharged with *programming principles*.|
+|-|
 
 To combat the issues above, we introduce the concept of the [single-responsibility principle](https://en.wikipedia.org/wiki/Single-responsibility_principle): instead of **one large** entity/file having a hundred roles — *instead, we should have **one hundred smaller** components that have a **single responsibility each**.* This is great, because now each component is **atomic** and **modular**.
 
 However, if all our content is spread out across different `.fountain` files, how are we going to assemble them together? There is solved with the coding practice of using [bundlers](https://snipcart.com/blog/javascript-module-bundler). *Bundlers organize and combine many files of code into one file.*
 
-> **`ffluent` is simply a Command Line Interface (CLI) that automatically combines multiple `.fountain` files into one main `output.fountain` file.**
+| **`ffluent` is simply a Command Line Interface (CLI) that automatically combines multiple `.fountain` files into one main `output.fountain` file.**|
+|-|
 
 That's the main idea.
 

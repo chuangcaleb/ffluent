@@ -73,8 +73,6 @@ That is, instead of writing everything in one long `.fountain` file, it would sa
 - semantic naming for each component
 -->
 
-...
-
 ## Installation
 
 ### Pre-requisites

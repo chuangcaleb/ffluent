@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
 import { program } from 'commander';
-import bundle from './bundle/index.js';
+import bundle from '../src/bundle/index.js';
 
 program
   .name('ffluent')

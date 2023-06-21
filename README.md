@@ -148,7 +148,7 @@ Advanced, you can bind this to a hotkey with VS Code Tasks.
 
 **Scaffolds the project workspace according to a template.**
 
-Still WIP.
+WIP. You'll be able to instantly prepare a new project in your workspace with boilerplate files... according to preset templates from a question-and-answer flow!
 
 <!-- TODO: ### The `ffluent` workspace -->
 
@@ -160,11 +160,11 @@ In fact, it's encouraged that if you only have 5-10 pages of script, just go van
 **A text editor / an application**.
 `ffluent` is not concerned how you produce your source files; its sole (single)-responsibility is to bundle them. There are many great text editor applications out there, like [VS Code](https://code.visualstudio.com/).
 
-**An Export to PDF function**
+**An Export to PDF function**.
 Again, there are already many great existing "`.fountain` to `.?????`" converters/exporters out there. I'm personally using Better Fountain's as it's part of my workflow. It's on the Roadmap to find some way to "*hook*" onto an external tool automatically as part of the `ffluent` workflow.
 
-**A version control feature**
-Many paid proprietary tools offer version control/backups. As a programmer, we are familiar with `git`, a technical, fine-grained version control tool. But if you're less technical, [Google Drive for Desktop](https://www.google.com/drive/download/) and [Dropbox Backup](https://www.dropbox.com/backup) are amazing non-technical solutions for syncing specific file directories to the cloud.
+**A version control feature**.
+Many paid proprietary tools offer version control/backups. As a programmer, we are familiar with `git`, a technical, fine-grained version control tool. But if you're less technical, [Google Drive for Desktop](https://www.google.com/drive/download/) or [Dropbox Backup](https://www.dropbox.com/backup) are amazing non-technical solutions for syncing specific file directories to the cloud.
 
 ## Is `ffluent` for you?
 
@@ -209,14 +209,15 @@ Many paid proprietary tools offer version control/backups. As a programmer, we a
   - You can take the `ffluent` workflow even further with `[[ links ]]` to reference markdown notes. And then the idea is that you have `.fountain` files in your Obsidian workspace as notes themselves. Everything interlinks.
   - Have yet to try this out, but I think this is the next step going forward.
 
-### Why the name, "ffluent"?
+## Why the name, "ffluent"?
 
 It had all started with the image of **converging fountain streams**.
 
 I found the word for this is **confluent**, defined as:
 
 > **confluent** (adjective)
-> marked by or exhibiting **confluence**;
+>
+> marked by or exhibiting **confluence**;</br>
 > *flowing together* or *coming together*
 >
 > – [Confluent Definition & Meaning - Merriam-Webster](https://www.merriam-webster.com/dictionary/confluent>)
@@ -233,4 +234,6 @@ Then, adding the extra "f" to `ffluent` also makes the project stand out amongst
 
 The logo captures that initial image of streams flowing and converging into one main stream. It was clearer to see in the first design iteration, that the streams are actually back-to-back capital letter F's, where their bases converge. I also find myself preferring dividing my story and source directory into four main folders for the 4-act structure, so I actually have four streams converging into one main one!
 
-<!-- ### Contributing -->
+### Contributing
+
+WIP. But tldr, pull requests for anything at all are welcome!

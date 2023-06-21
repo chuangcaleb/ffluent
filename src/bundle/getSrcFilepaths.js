@@ -12,7 +12,7 @@ function recurseReadDir(filepath) {
         }
         return path.resolve(dirent.path, dirent.name);
       })
-      // Filter for .fountain files
+      // TODO: Filter for .fountain files
       // Filter for _meta.json files (return as second arg)
       .flat()
   );

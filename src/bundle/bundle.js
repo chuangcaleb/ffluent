@@ -1,25 +1,21 @@
 import chalk from 'chalk';
-import { CONFIG_FILEPATH } from './consts.js';
+import { CONFIG_FILENAME, CWD } from './consts.js';
 import getSrcFilepaths from './getSrcFilepaths.js';
-import readFiles, { readJson } from './read.js';
+import readFiles, { readConfig } from './read.js';
 import resolveConfig from './resolveConfig.js';
 import writeOutput from './write.js';
 
-export default async function bundle(program) {
-  try {
-    const config = resolveConfig(await readJson(CONFIG_FILEPATH));
+export default async function bundle() {
+  const config = resolveConfig(await readConfig(CWD, CONFIG_FILENAME));
 
-    const filepaths = await getSrcFilepaths(program, config.srcDir);
+  const filepaths = await getSrcFilepaths(config.srcDir);
 
-    // Process files -> return [[content], [meta]]
-    const fileContents = await readFiles(filepaths);
+  // Process files -> return [[content], meta]
+  const fileContents = await readFiles(filepaths);
 
-    // TODO: add final newline to all if not last char
-    const outputContent = fileContents.join('\n');
+  // TODO: add final newline to all if not last char
+  const outputContent = fileContents.join('\n');
 
-    // write
-    writeOutput(config.outputFilepath, outputContent);
-  } catch (e) {
-    program.error(chalk.red(chalk.bgRed(' ERR ') + ' ' + e.message));
-  }
+  // write
+  writeOutput(config.outputFilepath, outputContent);
 }

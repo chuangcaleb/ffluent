@@ -18,9 +18,9 @@ function recurseReadDir(filepath) {
   );
 }
 
-export default async function getSrcFilepaths(program, dir) {
+export default async function getSrcFilepaths(dir) {
   if (!fs.existsSync(dir)) {
-    program.error(`The source directory "/${dir}" doesn't exist.`);
+    throw new Error(`A source directory doesn't exist at "${dir}".`);
   }
   const result = recurseReadDir(dir);
   // console.log(`Found ${result.length} files`);

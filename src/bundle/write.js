@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
@@ -11,5 +12,9 @@ export default async function writeOutput(filepath, content) {
 
   // write
   fs.writeFileSync(filepath, content);
-  console.log('Successfully bundled to ' + filepath);
+  console.log(
+    `${chalk.bgGreen(' SUC ')} ${chalk.green(
+      'Successfully bundled to ' + filepath
+    )}`
+  );
 }

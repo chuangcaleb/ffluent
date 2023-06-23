@@ -14,6 +14,8 @@ program
   .version('0.1.0', '-v, --version')
   .exitOverride(() => null);
 
+program.action(program.help);
+
 program
   .command('bundle')
   .alias('b')

@@ -1,4 +1,3 @@
-import chalk from 'chalk';
 import { CONFIG_FILENAME, CWD } from './consts.js';
 import getSrcFilepaths from './getSrcFilepaths.js';
 import readFiles, { readConfig } from './read.js';

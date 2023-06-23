@@ -43,7 +43,7 @@ export async function readConfig(dir, filename) {
   const textContent = readFile(configPath);
 
   try {
-    if (ext === '.yaml') return YAML.parse(textContent);
+    if (ext === '.yaml') return YAML.load(textContent);
     if (ext === '.json') return JSON.parse(textContent);
   } catch (err) {
     throw new Error(err + ' in ' + configPath);

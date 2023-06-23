@@ -28,10 +28,14 @@ export async function readConfig(dir, filename) {
     fs.existsSync(filepath)
   );
 
-  if (existingConfigPaths.length === 0)
+  if (existingConfigPaths.length === 0) {
     throw new ReferenceError(
-      'No file named ' + filenameList.join(' or ') + ' found at ' + dir
+      'Expected a ffluent configuration file named ' +
+        filenameList.join(' or ') +
+        ' at ' +
+        dir
     );
+  }
 
   const configPath = existingConfigPaths[0];
 

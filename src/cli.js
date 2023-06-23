@@ -29,6 +29,7 @@ export default function cli(process) {
       write(`${chalk.bgRed(' ERR ')} ${chalk.red(str)}`),
   });
 
+  // Help not needed
   // program.showHelpAfterError(
   //   '\n' +
   //     chalk.bgBlue(' TIP ') +

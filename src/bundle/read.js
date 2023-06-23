@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import YAML from 'js-yaml';
+import { ERROR_LOCATION_PREFIX } from './consts.js';
 
 function readFile(filepath) {
   try {
@@ -29,10 +30,10 @@ export async function readConfig(dir, filename) {
   );
 
   if (existingConfigPaths.length === 0) {
-    throw new ReferenceError(
+    throw new Error(
       'Expected a ffluent configuration file named ' +
         filenameList.join(' or ') +
-        ' at ' +
+        ERROR_LOCATION_PREFIX +
         dir
     );
   }
@@ -46,6 +47,7 @@ export async function readConfig(dir, filename) {
     if (ext === '.yaml') return YAML.load(textContent);
     if (ext === '.json') return JSON.parse(textContent);
   } catch (err) {
-    throw new Error(err + ' in ' + configPath);
+    err.message += ERROR_LOCATION_PREFIX + configPath;
+    throw err;
   }
 }

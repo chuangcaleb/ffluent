@@ -51,8 +51,12 @@
 
 ## TODO
 
-- Handle yaml
+- [x] Handle yaml
   - allows comments
   - more intuitive for non-technical users
-- JSON schema
-- require other .fountain files
+- [] special files
+  - [x] hidden/excluded files / dirs?
+  - [] +cover fountain file
+  - [] config json/yaml file
+- [] JSON schema
+- [] require other .fountain files

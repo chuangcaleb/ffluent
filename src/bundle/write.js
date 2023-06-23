@@ -14,7 +14,7 @@ export default async function writeOutput(filepath, content) {
   fs.writeFileSync(filepath, content);
   console.log(
     `${chalk.bgGreen(' SUC ')} ${chalk.green(
-      'Successfully bundled to ' + filepath
+      'Successfully bundled!' + '\n... @ ' + filepath
     )}`
   );
 }

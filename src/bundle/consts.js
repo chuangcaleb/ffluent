@@ -10,3 +10,5 @@ export const CWD = process.cwd();
 export const DEFAULT_SRC_DIR = path.resolve(CWD, SRC);
 
 export const DEFAULT_OUT_DIR = path.resolve(CWD, OUT);
+
+export const ERROR_LOCATION_PREFIX = '\n... @ ';

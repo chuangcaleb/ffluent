@@ -12,6 +12,8 @@ export default async function bundle() {
   // Process files -> return [[content], meta]
   const fileContents = await readFiles(filepaths);
 
+  // Organize order according to configs
+
   // TODO: add final newline to all if not last char
   const outputContent = fileContents.join('\n');
 

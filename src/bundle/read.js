@@ -18,10 +18,8 @@ export default async function readFiles(filepaths) {
 }
 
 export async function readConfig(dir, filename) {
-  const extensions = ['.yaml', '.json'];
-  const filenameList = CONFIG_EXTENSIONS.map((ext) => filename + ext);
-  const filepathList = filenameList.map((filename) =>
-    path.resolve(dir, filename)
+  const filepathList = CONFIG_EXTENSIONS.map((ext) =>
+    path.resolve(dir, filename + ext)
   );
 
   const existingConfigPaths = filepathList.filter((filepath) =>

@@ -11,13 +11,13 @@ function isValidSourceFile(dirent) {
   );
 }
 
-function recurse(dirent) {
-  if (dirent.isDirectory())
-    return recurseReadDir(path.resolve(filepath, dirent.name));
-  return path.resolve(dirent.path, dirent.name);
-}
-
 function recurseReadDir(filepath) {
+  function recurse(dirent) {
+    if (dirent.isDirectory())
+      return recurseReadDir(path.resolve(filepath, dirent.name));
+    return path.resolve(dirent.path, dirent.name);
+  }
+
   const dirents = fs.readdirSync(filepath, { withFileTypes: true });
 
   return (

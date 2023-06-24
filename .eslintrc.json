@@ -12,7 +12,8 @@
     {
       "files": ["*.js"],
       "rules": {
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "prefer-template": "off"
       }
     }
   ]

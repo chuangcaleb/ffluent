@@ -4,16 +4,11 @@ import path from 'path';
 import { CONFIG_EXTENSIONS, ERROR_LOCATION_PREFIX } from '../consts.js';
 import readFile from './readFile.js';
 
-function composeConfigFilepaths(dir, filename) {
-  const filenameList = CONFIG_EXTENSIONS.map((ext) => filename + ext);
-  const filepathList = filenameList.map((fullFilename) =>
+export default function readConfig(dir, filename, isRequired = true) {
+  const configFilenames = CONFIG_EXTENSIONS.map((ext) => filename + ext);
+  const configPaths = configFilenames.map((fullFilename) =>
     path.resolve(dir, fullFilename)
   );
-  return filepathList;
-}
-
-export default async function readConfig(dir, filename, isRequired = true) {
-  const configPaths = composeConfigFilepaths(dir, filename);
 
   const existingConfigPaths = configPaths.filter((filepath) =>
     fs.existsSync(filepath)
@@ -23,7 +18,7 @@ export default async function readConfig(dir, filename, isRequired = true) {
     if (isRequired) {
       throw new Error(
         'Expected a ffluent configuration file named ' +
-          filenameList.join(' or ') +
+          configFilenames.join(' or ') +
           ERROR_LOCATION_PREFIX +
           dir
       );
@@ -45,4 +40,5 @@ export default async function readConfig(dir, filename, isRequired = true) {
     err.message += ERROR_LOCATION_PREFIX + configPath;
     throw err;
   }
+  return null;
 }

@@ -1,14 +1,22 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, META_FILENAME, SOURCE_FILE_EXTENSIONS } from './consts.js';
+import { CWD, META_FILENAME, VALID_SOURCE_EXTENSION } from './consts.js';
 import readConfig from './read/readConfig.js';
+import processMeta from './processMeta.js';
 
 function isValidSourceFile(dirent) {
-  function hasValidExtension(filename, extensions) {
-    return extensions.includes(path.extname(filename).toLowerCase());
+  // Handles a list of valid extensions
+  // function hasValidExtension(filename, extensions) {
+  //   return extensions.includes(path.extname(filename).toLowerCase());
+  // }
+  // return !(
+  //   dirent.isFile() && !hasValidExtension(dirent.name, SOURCE_FILE_EXTENSIONS)
+  // );
+  function hasValidExtension(filename, extension) {
+    return path.extname(filename).toLowerCase() === extension;
   }
   return !(
-    dirent.isFile() && !hasValidExtension(dirent.name, SOURCE_FILE_EXTENSIONS)
+    dirent.isFile() && !hasValidExtension(dirent.name, VALID_SOURCE_EXTENSION)
   );
 }
 
@@ -19,13 +27,15 @@ function recurseReadDirectory(directory) {
     return path.resolve(dirent.path, dirent.name);
   }
 
-  const dirents = fs.readdirSync(directory, { withFileTypes: true });
+  const dirents = fs
+    .readdirSync(directory, { withFileTypes: true })
+    .filter(isValidSourceFile);
 
-  const metaFilepath = readConfig(directory, META_FILENAME, false);
+  const dirMeta = readConfig(directory, META_FILENAME, false);
+  const processedDirents = processMeta(dirMeta, dirents);
 
   return (
-    dirents
-      .filter(isValidSourceFile)
+    processedDirents
       // Filter out private/excluded fountain files (starts with _)
       // .filter(({ name }) => !(name[0] === '_'))
       .map(recurse)

@@ -12,3 +12,5 @@ export const DEFAULT_SRC_DIR = path.resolve(CWD, SRC);
 export const DEFAULT_OUT_DIR = path.resolve(CWD, OUT);
 
 export const ERROR_LOCATION_PREFIX = '\n... @ ';
+export const CONFIG_EXTENSIONS = ['.yaml', '.json'];
+export const SOURCE_FILE_EXTENSIONS = [...CONFIG_EXTENSIONS, '.fountain'];

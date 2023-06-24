@@ -82,11 +82,12 @@ That is, instead of writing everything in one long `.fountain` file, it would sa
 
 ### Pre-requisites
 
-You will need to understand the following before proceding:
+<!-- You will need to understand the following before proceding:
 
 - [Fountain](https://www.markdownguide.org/getting-started/)
   - A simple markup syntax that allows screenplays to be written, edited, and shared in plain, human-readable text
-  - `ffluent` completely relies on this. Read their example `.fountain` screenplays to first get fluent in the language!
+  - `ffluent` completely relies on this. Read their example `.fountain` screenplays to first get fluent in the language!-->
+
 - [Node.js](https://www.freecodecamp.org/news/how-to-install-node-js-and-npm-on-windows-2/)
   - One of the most popular coding "runtime environments"
   - This is what allows you to effortlessly install `ffluent`, get updates and actually run `ffluent`

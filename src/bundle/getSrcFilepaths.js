@@ -22,7 +22,6 @@ function recurseReadDir(filepath) {
 
   return (
     dirents
-      // Filter for source files
       .filter(isValidSourceFile)
       // Filter out private/excluded fountain files (starts with _)
       // .filter(({ name }) => !(name[0] === '_'))

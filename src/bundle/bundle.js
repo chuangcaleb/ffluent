@@ -1,6 +1,6 @@
 import { CONFIG_FILENAME, CWD } from './consts.js';
 import getSrcFilepaths from './getSrcFilepaths.js';
-import readFiles, { readConfig } from './read.js';
+import { readFiles, readConfig } from './read/index.js';
 import resolveConfig from './resolveConfig.js';
 import writeOutput from './write.js';
 

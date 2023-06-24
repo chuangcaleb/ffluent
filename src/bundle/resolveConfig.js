@@ -5,7 +5,6 @@ import {
   DEFAULT_SRC_DIR,
 } from './consts.js';
 
-// TODO: handle no config / missing required
 export default function resolveConfig(config) {
   var { outputDir, outputFilename, title, srcDir } = config;
   const outputFilepath = path.resolve(

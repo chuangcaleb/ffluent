@@ -1,23 +1,10 @@
 import fs from 'fs';
-import path from 'path';
 import YAML from 'js-yaml';
-import { CONFIG_EXTENSIONS, ERROR_LOCATION_PREFIX } from './consts.js';
+import path from 'path';
+import { CONFIG_EXTENSIONS, ERROR_LOCATION_PREFIX } from '../consts.js';
+import readFile from './readFile.js';
 
-function readFile(filepath) {
-  try {
-    return fs.readFileSync(filepath, 'utf-8');
-  } catch (e) {
-    throw new Error(`An expected file was not found at ${filepath}`);
-  }
-}
-
-export default async function readFiles(filepaths) {
-  const result = filepaths.map((filepath) => readFile(filepath));
-  // console.log(`Read ${result.length} files`);
-  return result;
-}
-
-export async function readConfig(dir, filename) {
+export default async function readConfig(dir, filename) {
   const filepathList = CONFIG_EXTENSIONS.map((ext) =>
     path.resolve(dir, filename + ext)
   );

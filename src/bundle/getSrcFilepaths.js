@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, SOURCE_FILE_EXTENSIONS } from './consts.js';
+import { CWD, META_FILENAME, SOURCE_FILE_EXTENSIONS } from './consts.js';
+import readConfig from './read/readConfig.js';
 
 function isValidSourceFile(dirent) {
   function hasValidExtension(filename, extensions) {
@@ -11,14 +12,16 @@ function isValidSourceFile(dirent) {
   );
 }
 
-function recurseReadDir(filepath) {
+function recurseReadDirectory(directory) {
   function recurse(dirent) {
     if (dirent.isDirectory())
-      return recurseReadDir(path.resolve(filepath, dirent.name));
+      return recurseReadDirectory(path.resolve(directory, dirent.name));
     return path.resolve(dirent.path, dirent.name);
   }
 
-  const dirents = fs.readdirSync(filepath, { withFileTypes: true });
+  const dirents = fs.readdirSync(directory, { withFileTypes: true });
+
+  const metaFilepath = readConfig(directory, META_FILENAME, false);
 
   return (
     dirents
@@ -30,13 +33,13 @@ function recurseReadDir(filepath) {
   );
 }
 
-export default async function getSrcFilepaths(dir) {
-  if (!fs.existsSync(dir)) {
+export default async function getSrcFilepaths(directory) {
+  if (!fs.existsSync(directory)) {
     throw new Error(
-      `A source directory doesn't exist at ${CWD}/${dir}\nYou can configure a custom source directory with the "srcDir" field in your ffluent config.`
+      `A source directory doesn't exist at ${CWD}/${directory}\nYou can configure a custom source directory with the "srcDir" field in your ffluent config.`
     );
   }
-  const result = recurseReadDir(dir);
+  const result = recurseReadDirectory(directory);
   // console.log(`Found ${result.length} files`);
   return result;
 }

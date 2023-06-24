@@ -4,6 +4,7 @@ const SRC = 'src';
 const OUT = 'out';
 
 export const CONFIG_FILENAME = 'ffluent';
+export const META_FILENAME = '_meta';
 export const DEFAULT_OUT_FILENAME = 'output.fountain';
 
 export const CWD = process.cwd();

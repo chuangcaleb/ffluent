@@ -59,5 +59,6 @@
   - [] +cover fountain file to order first
     - warning: "+"-files are reserved names. if you need to specify a "+"-file in the meta.yaml sequence, then consider to not use the "+"-prefix.
   - [] config json/yaml file
+- [] implicit section headings (level according to depth)
 - [] JSON schema
 - [] require other .fountain files

@@ -5,20 +5,27 @@ export default function processMeta(meta, dirents) {
 
   const sequence = meta?.sequence;
   if (sequence) {
-    const sequencedDirents = sequence.map((filename) => {
-      const fullFilename = filename + '.fountain';
-      const dirent = dirents.find((d) => d.name === fullFilename);
+    const priorityDirents = dirents.filter((d) => d.name[0] === '+');
+
+    const sequencedDirents = sequence.map((name) => {
+      // TODO: log warning if name starts with reserved character
+
+      const dirent = dirents.find(
+        (d) => d.name === (d.isFile() ? name + '.fountain' : name)
+      );
+
       if (!dirent)
         throw new Error(
-          `A file was sequenced but doesn't exist, whose filename is "${filename}", in a _meta configuration file` +
+          `A file was sequenced but doesn't exist, whose filename is "${name}", in a _meta configuration file` +
             ERROR_LOCATION_PREFIX +
             `${CWD}/${dirents[0].path}`
         );
       return dirent;
     });
 
-    return sequencedDirents;
+    return [...priorityDirents, ...sequencedDirents];
   }
 
+  // Fallback
   return dirents;
 }

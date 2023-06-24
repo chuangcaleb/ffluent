@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import { ERROR_LOCATION_PREFIX } from './consts.js';
 
 export default async function writeOutput(filepath, content) {
   // mkdir if not exists
@@ -14,7 +15,7 @@ export default async function writeOutput(filepath, content) {
   fs.writeFileSync(filepath, content);
   console.log(
     `${chalk.bgGreen(' SUC ')} ${chalk.green(
-      'Successfully bundled!' + '\n... @ ' + filepath
+      'Successfully bundled!' + ERROR_LOCATION_PREFIX + filepath
     )}`
   );
 }

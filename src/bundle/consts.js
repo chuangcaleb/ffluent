@@ -5,14 +5,13 @@ const OUT = 'out';
 
 export const CONFIG_FILENAME = 'ffluent';
 export const META_FILENAME = '_meta';
-export const DEFAULT_OUT_FILENAME = 'output.fountain';
+export const PRIORITY_PREFIX = '+';
 
 export const CWD = process.cwd();
 export const DEFAULT_SRC_DIR = path.resolve(CWD, SRC);
-
 export const DEFAULT_OUT_DIR = path.resolve(CWD, OUT);
+export const DEFAULT_OUT_FILENAME = 'output.fountain';
 
 export const ERROR_LOCATION_PREFIX = '\n... @ ';
 export const CONFIG_EXTENSIONS = ['.yaml', '.json'];
 export const VALID_SOURCE_EXTENSION = '.fountain';
-// export const SOURCE_FILE_EXTENSIONS = [...CONFIG_EXTENSIONS, '.fountain'];

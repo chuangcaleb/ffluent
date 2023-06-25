@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
 import { program } from 'commander';
-import bundle from '../src/bundle/index.js';
+import bundle from './bundle/index.js';
 
 // Utility to use .catch chain for error handling; promises unsupported for program.error
 // export function actionRunner(fn: (...args) => Promise<any>) {

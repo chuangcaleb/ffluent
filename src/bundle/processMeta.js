@@ -1,11 +1,13 @@
-import { CWD, ERROR_LOCATION_PREFIX } from './consts.js';
+import { CWD, ERROR_LOCATION_PREFIX, PRIORITY_PREFIX } from './consts.js';
 
 export default function processMeta(meta, dirents) {
   if (!meta) return dirents;
 
   const sequence = meta?.sequence;
   if (sequence) {
-    const priorityDirents = dirents.filter((d) => d.name[0] === '+');
+    const priorityDirents = dirents.filter(
+      (d) => d.name[0] === PRIORITY_PREFIX
+    );
 
     const sequencedDirents = sequence.map((name) => {
       // TODO: log warning if name starts with reserved character

@@ -34,8 +34,10 @@ export default function readConfig(dir, filename, isRequired = true) {
   const textContent = readFile(configPath);
 
   try {
-    if (ext === '.yaml') return YAML.load(textContent);
-    if (ext === '.json') return JSON.parse(textContent);
+    if (ext === '.yaml')
+      return { content: YAML.load(textContent), path: configPath };
+    if (ext === '.json')
+      return { content: JSON.parse(textContent), path: configPath };
   } catch (err) {
     err.message += ERROR_LOCATION_PREFIX + configPath;
     throw err;

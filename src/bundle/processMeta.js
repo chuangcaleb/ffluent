@@ -1,16 +1,26 @@
-import { CWD, ERROR_LOCATION_PREFIX, PRIORITY_PREFIX } from './consts.js';
+import chalk from 'chalk';
+import { ERROR_LOCATION_PREFIX, PRIORITY_PREFIX } from './consts.js';
 
-export default function processMeta(meta, dirents) {
-  if (!meta) return dirents;
-
-  const sequence = meta?.sequence;
+export default function processMeta(metaContent, dirents, metaPath) {
+  /*
+   * Organize by configured sequence
+   */
+  const sequence = metaContent?.sequence;
   if (sequence) {
+    // const configFilepath = path.resolve(CWD, directory);
     const priorityDirents = dirents.filter(
       (d) => d.name[0] === PRIORITY_PREFIX
     );
 
     const sequencedDirents = sequence.map((name) => {
-      // TODO: log warning if name starts with reserved character
+      if (name[0] === PRIORITY_PREFIX)
+        console.log(
+          chalk.yellow(
+            `Warning: "${name}" was configured in a _meta file's sequence. Filenames prefixed with a "${PRIORITY_PREFIX}" character are automatically sequenced earlier.\nConsider removing this line of configuration if this was your intention.` +
+              ERROR_LOCATION_PREFIX +
+              metaPath
+          )
+        );
 
       const dirent = dirents.find(
         (d) => d.name === (d.isFile() ? name + '.fountain' : name)
@@ -20,7 +30,7 @@ export default function processMeta(meta, dirents) {
         throw new Error(
           `A file was sequenced but doesn't exist, whose filename is "${name}", in a _meta configuration file` +
             ERROR_LOCATION_PREFIX +
-            `${CWD}/${dirents[0].path}`
+            metaPath
         );
       return dirent;
     });

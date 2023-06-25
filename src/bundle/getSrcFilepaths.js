@@ -31,8 +31,10 @@ function recurseReadDirectory(directory) {
     .readdirSync(directory, { withFileTypes: true })
     .filter(isValidSourceFile);
 
-  const dirMeta = readConfig(directory, META_FILENAME, false);
-  const processedDirents = processMeta(dirMeta, dirents);
+  const metaConfig = readConfig(directory, META_FILENAME, false);
+  const processedDirents = metaConfig
+    ? processMeta(metaConfig.content, dirents, metaConfig.path)
+    : dirents;
 
   return (
     processedDirents

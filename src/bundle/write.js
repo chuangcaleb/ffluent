@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
-import { ERROR_LOCATION_PREFIX } from './consts.js';
+import { composeLocation } from './utils.js';
 
 export default async function writeOutput(filepath, content) {
   // mkdir if not exists
@@ -15,7 +15,7 @@ export default async function writeOutput(filepath, content) {
   fs.writeFileSync(filepath, content);
   console.log(
     `${chalk.bgGreen(' SUC ')} ${chalk.green(
-      'Bundled successfully!' + ERROR_LOCATION_PREFIX + filepath
+      'Bundled successfully!' + composeLocation(filepath)
     )}`
   );
 }

@@ -1,7 +1,8 @@
 import fs from 'fs';
 import YAML from 'js-yaml';
 import path from 'path';
-import { CONFIG_EXTENSIONS, ERROR_LOCATION_PREFIX } from '../consts.js';
+import { CONFIG_EXTENSIONS } from '../consts.js';
+import { composeLocation } from '../utils.js';
 import readFile from './readFile.js';
 
 export default function readConfig(dir, filename, isRequired = true) {
@@ -19,8 +20,7 @@ export default function readConfig(dir, filename, isRequired = true) {
       throw new Error(
         'Expected a ffluent configuration file named ' +
           configFilenames.join(' or ') +
-          ERROR_LOCATION_PREFIX +
-          dir
+          composeLocation(dir)
       );
     } else {
       return null;
@@ -39,7 +39,7 @@ export default function readConfig(dir, filename, isRequired = true) {
     if (ext === '.json')
       return { content: JSON.parse(textContent), path: configPath };
   } catch (err) {
-    err.message += ERROR_LOCATION_PREFIX + configPath;
+    err.message += composeLocation(configPath);
     throw err;
   }
   return null;

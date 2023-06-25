@@ -1,5 +1,6 @@
 import chalk from 'chalk';
-import { ERROR_LOCATION_PREFIX, PRIORITY_PREFIX } from './consts.js';
+import { PRIORITY_PREFIX } from './consts.js';
+import { composeLocation } from './utils.js';
 
 export default function processMeta(metaContent, dirents, metaPath) {
   /*
@@ -17,8 +18,7 @@ export default function processMeta(metaContent, dirents, metaPath) {
         console.log(
           chalk.yellow(
             `Warning: "${name}" was configured in a _meta file's sequence. Filenames prefixed with a "${PRIORITY_PREFIX}" character are automatically sequenced earlier.\nConsider removing this line of configuration if this was your intention.` +
-              ERROR_LOCATION_PREFIX +
-              metaPath
+              composeLocation(metaPath)
           )
         );
 
@@ -29,8 +29,7 @@ export default function processMeta(metaContent, dirents, metaPath) {
       if (!dirent)
         throw new Error(
           `A file was sequenced but doesn't exist, whose filename is "${name}", in a _meta configuration file` +
-            ERROR_LOCATION_PREFIX +
-            metaPath
+            composeLocation(metaPath)
         );
       return dirent;
     });

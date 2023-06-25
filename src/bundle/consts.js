@@ -12,6 +12,6 @@ export const DEFAULT_SRC_DIR = path.resolve(CWD, SRC);
 export const DEFAULT_OUT_DIR = path.resolve(CWD, OUT);
 export const DEFAULT_OUT_FILENAME = 'output.fountain';
 
-export const ERROR_LOCATION_PREFIX = '\n... @ ';
+export const LOG_LOCATION_PREFIX = '\n... @ ';
 export const CONFIG_EXTENSIONS = ['.yaml', '.json'];
 export const VALID_SOURCE_EXTENSION = '.fountain';

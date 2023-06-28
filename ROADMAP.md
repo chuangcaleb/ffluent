@@ -55,10 +55,9 @@
   - allows comments
   - more intuitive for non-technical users
 - [] special files
-  - [x] hidden/excluded files / dirs?
-  - [] +cover fountain file to order first
+  - [x] +cover fountain file to order first
     - warning: "+"-files are reserved names. if you need to specify a "+"-file in the meta.yaml sequence, then consider to not use the "+"-prefix.
-  - [] config json/yaml file
+  - [x] config json/yaml file
 - [] implicit section headings (level according to depth)
 - [] JSON schema
 - [] require other .fountain files

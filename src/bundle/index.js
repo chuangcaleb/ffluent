@@ -1,1 +1,3 @@
-export { default } from './bundle.js';
+import bundle from './bundle.js';
+
+export default bundle;

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, META_FILENAME, TOKENS } from '../../consts.js';
+import { COVER_FILENAME, CWD, META_FILENAME, TOKENS } from '../../consts.js';
 import processByMeta from './processByMeta.js';
 import readConfig from '../readConfig.js';
 
@@ -18,7 +18,7 @@ function recurseReadDirectory(directory, depth) {
 
     const sectionTextToken = {
       type: TOKENS.TEXT,
-      content: `${'#'.repeat(depth)} ${dNameBase})}`,
+      content: `${'#'.repeat(depth)} ${dNameBase}`,
     };
 
     if (dirent.isDirectory()) {
@@ -30,7 +30,7 @@ function recurseReadDirectory(directory, depth) {
     }
 
     return [
-      sectionTextToken,
+      ...(dNameBase.toLowerCase() !== COVER_FILENAME ? [sectionTextToken] : []),
       { type: TOKENS.FILE, content: path.resolve(dPath, dName) },
     ];
   }

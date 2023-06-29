@@ -6,6 +6,7 @@ const OUT = 'out';
 export const CONFIG_FILENAME = 'ffluent';
 export const META_FILENAME = '_meta';
 export const PRIORITY_PREFIX = '+';
+export const COVER_FILENAME = PRIORITY_PREFIX + 'cover';
 
 export const CWD = process.cwd();
 export const DEFAULT_SRC_DIR = path.resolve(CWD, SRC);

@@ -54,10 +54,12 @@
 - [x] Handle yaml
   - allows comments
   - more intuitive for non-technical users
-- [] special files
+- [x] special files
   - [x] +cover fountain file to order first
     - warning: "+"-files are reserved names. if you need to specify a "+"-file in the meta.yaml sequence, then consider to not use the "+"-prefix.
+    - will not be marked in implicit section headings
   - [x] config json/yaml file
+- [x] handle whitespace
 - [] implicit section headings (level according to depth)
 - [] JSON schema
 - [] require other .fountain files

@@ -6,10 +6,9 @@ export default async function bundle() {
 
   const tokens = getSrcTokens(config.srcDir);
 
-  const components = parseTokens(tokens);
+  const stringComponents = parseTokens(tokens);
 
-  // TODO: add final newline to all if not last char
-  const outputContent = components.join('\n');
+  const outputContent = stringComponents.join('\n\n');
 
   // write
   writeOutput(config.outputFilepath, outputContent);

@@ -30,8 +30,8 @@ export default function readConfig(dir, filename, isRequired = true) {
   // If multiple valid configs were found: select the first
   const configPath = existingConfigPaths[0];
 
-  const { ext } = path.parse(configPath);
   const textContent = readFile(configPath);
+  const { ext } = path.parse(configPath);
 
   try {
     if (ext === '.yaml')

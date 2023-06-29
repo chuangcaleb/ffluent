@@ -14,7 +14,7 @@ function isValidSourceFile(dirent) {
 function recurseReadDirectory(directory, depth) {
   function recurse(dirent) {
     function composeSectionText(filename) {
-      return `${'#'.repeat(depth)} ${path.parse(filename).name}\n`;
+      return `${'#'.repeat(depth)} ${path.parse(filename).name}`;
     }
     const { name: dName, path: dPath } = dirent;
 

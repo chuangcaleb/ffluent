@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { CWD, META_FILENAME } from './consts.js';
 import processMeta from './processMeta.js';
-import readConfig from './read/readConfig.js';
+import readConfig from './read/config/readConfig.js';
 
 function isValidSourceFile(dirent) {
   function hasValidExtension(filename, extension) {
@@ -55,7 +55,7 @@ function recurseReadDirectory(directory, depth) {
   );
 }
 
-export default async function getSrcTokens(directory) {
+export default function getSrcTokens(directory) {
   if (!fs.existsSync(directory)) {
     throw new Error(
       `A source directory doesn't exist at ${CWD}/${directory}\nYou can configure a custom source directory with the "srcDir" field in your ffluent config.`

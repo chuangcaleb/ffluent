@@ -1,9 +1,9 @@
 import fs from 'fs';
 import YAML from 'js-yaml';
 import path from 'path';
-import { CONFIG_EXTENSIONS } from '../consts.js';
-import { composeLocation } from '../utils.js';
-import readFile from './readFile.js';
+import { CONFIG_EXTENSIONS } from '../../consts.js';
+import { composeLocation } from '../../utils.js';
+import readFile from '../readFile.js';
 
 export default function readConfig(dir, filename, isRequired = true) {
   const configFilenames = CONFIG_EXTENSIONS.map((ext) => filename + ext);

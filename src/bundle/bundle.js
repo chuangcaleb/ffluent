@@ -1,13 +1,11 @@
-import { CONFIG_FILENAME, CWD } from './consts.js';
 import getSrcTokens from './getSrcTokens.js';
-import { parseTokens, readConfig } from './read/index.js';
-import resolveConfig from './resolveConfig.js';
+import { getConfig, parseTokens } from './read/index.js';
 import writeOutput from './write.js';
 
 export default async function bundle() {
-  const config = resolveConfig(await readConfig(CWD, CONFIG_FILENAME));
+  const config = getConfig();
 
-  const tokens = await getSrcTokens(config.srcDir);
+  const tokens = getSrcTokens(config.srcDir);
 
   const components = parseTokens(tokens);
 

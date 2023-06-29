@@ -3,7 +3,7 @@ import {
   DEFAULT_OUT_DIR,
   DEFAULT_OUT_FILENAME,
   DEFAULT_SRC_DIR,
-} from './consts.js';
+} from '../../consts.js';
 
 export default function resolveConfig(config) {
   const { outputDir, outputFilename, title } = config;

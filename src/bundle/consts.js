@@ -13,4 +13,8 @@ export const DEFAULT_OUT_DIR = path.resolve(CWD, OUT);
 export const DEFAULT_OUT_FILENAME = 'output.fountain';
 
 export const LOG_LOCATION_PREFIX = '\n... @ ';
-export const CONFIG_EXTENSIONS = ['.yaml', '.json'];
+
+export const EXT = { YAML: '.yaml', JSON: '.json' };
+export const CONFIG_EXTENSIONS = [EXT.YAML, EXT.JSON];
+
+export const TOKENS = { FILE: 'file', TEXT: 'text' };

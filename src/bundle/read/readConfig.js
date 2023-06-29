@@ -1,7 +1,7 @@
 import fs from 'fs';
 import YAML from 'js-yaml';
 import path from 'path';
-import { CONFIG_EXTENSIONS } from '../consts.js';
+import { CONFIG_EXTENSIONS, EXT } from '../consts.js';
 import { composeLocation } from '../utils.js';
 import readFile from './readFile.js';
 
@@ -34,9 +34,9 @@ export default function readConfig(dir, filename, isRequired = true) {
   const { ext } = path.parse(configPath);
 
   try {
-    if (ext === '.yaml')
+    if (ext === EXT.YAML)
       return { content: YAML.load(textContent), path: configPath };
-    if (ext === '.json')
+    if (ext === EXT.JSON)
       return { content: JSON.parse(textContent), path: configPath };
   } catch (err) {
     err.message += composeLocation(configPath);

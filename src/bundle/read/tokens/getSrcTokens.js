@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, META_FILENAME } from '../../consts.js';
+import { CWD, META_FILENAME, TOKENS } from '../../consts.js';
 import processMeta from './processByMeta.js';
 import readConfig from '../readConfig.js';
 
@@ -19,7 +19,7 @@ function recurseReadDirectory(directory, depth) {
     const { name: dName, path: dPath } = dirent;
 
     const sectionTextToken = {
-      type: 'text',
+      type: TOKENS.TEXT,
       content: composeSectionText(dName),
     };
 
@@ -33,7 +33,7 @@ function recurseReadDirectory(directory, depth) {
 
     return [
       sectionTextToken,
-      { type: 'file', content: path.resolve(dPath, dName) },
+      { type: TOKENS.FILE, content: path.resolve(dPath, dName) },
     ];
   }
 

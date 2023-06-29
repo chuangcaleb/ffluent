@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { PRIORITY_PREFIX } from '../../consts.js';
 import { composeLocation } from '../../utils.js';
 
-export default function processMeta(metaContent, dirents, metaPath) {
+export default function processByMeta(metaContent, dirents, metaPath) {
   /*
    * Organize by configured sequence
    */

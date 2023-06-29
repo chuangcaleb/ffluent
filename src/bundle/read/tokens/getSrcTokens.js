@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { CWD, META_FILENAME, TOKENS } from '../../consts.js';
-import processMeta from './processByMeta.js';
+import processByMeta from './processByMeta.js';
 import readConfig from '../readConfig.js';
 
 function isValidSourceFile(dirent) {
@@ -13,14 +13,12 @@ function isValidSourceFile(dirent) {
 
 function recurseReadDirectory(directory, depth) {
   function recurse(dirent) {
-    function composeSectionText(filename) {
-      return `${'#'.repeat(depth)} ${path.parse(filename).name}`;
-    }
     const { name: dName, path: dPath } = dirent;
+    const { name: dNameBase } = path.parse(dName);
 
     const sectionTextToken = {
       type: TOKENS.TEXT,
-      content: composeSectionText(dName),
+      content: `${'#'.repeat(depth)} ${dNameBase})}`,
     };
 
     if (dirent.isDirectory()) {
@@ -43,7 +41,7 @@ function recurseReadDirectory(directory, depth) {
 
   const metaConfig = readConfig(directory, META_FILENAME, false);
   const processedDirents = metaConfig
-    ? processMeta(metaConfig.content, dirents, metaConfig.path)
+    ? processByMeta(metaConfig.content, dirents, metaConfig.path)
     : dirents;
 
   return (

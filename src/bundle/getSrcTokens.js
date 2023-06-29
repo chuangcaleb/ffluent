@@ -1,30 +1,40 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, META_FILENAME, VALID_SOURCE_EXTENSION } from './consts.js';
-import readConfig from './read/readConfig.js';
+import { CWD, META_FILENAME } from './consts.js';
 import processMeta from './processMeta.js';
+import readConfig from './read/readConfig.js';
 
 function isValidSourceFile(dirent) {
-  // Handles a list of valid extensions
-  // function hasValidExtension(filename, extensions) {
-  //   return extensions.includes(path.extname(filename).toLowerCase());
-  // }
-  // return !(
-  //   dirent.isFile() && !hasValidExtension(dirent.name, SOURCE_FILE_EXTENSIONS)
-  // );
   function hasValidExtension(filename, extension) {
     return path.extname(filename).toLowerCase() === extension;
   }
-  return !(
-    dirent.isFile() && !hasValidExtension(dirent.name, VALID_SOURCE_EXTENSION)
-  );
+  return !(dirent.isFile() && !hasValidExtension(dirent.name, '.fountain'));
 }
 
-function recurseReadDirectory(directory) {
+function recurseReadDirectory(directory, depth) {
   function recurse(dirent) {
-    if (dirent.isDirectory())
-      return recurseReadDirectory(path.resolve(directory, dirent.name));
-    return path.resolve(dirent.path, dirent.name);
+    function composeSectionText(filename) {
+      return `${'#'.repeat(depth)} ${path.parse(filename).name}\n`;
+    }
+    const { name: dName, path: dPath } = dirent;
+
+    const sectionTextToken = {
+      type: 'text',
+      content: composeSectionText(dName),
+    };
+
+    if (dirent.isDirectory()) {
+      const directoryPath = path.resolve(directory, dName);
+      return [
+        sectionTextToken,
+        ...recurseReadDirectory(directoryPath, depth + 1),
+      ];
+    }
+
+    return [
+      sectionTextToken,
+      { type: 'file', content: path.resolve(dPath, dName) },
+    ];
   }
 
   const dirents = fs
@@ -45,13 +55,13 @@ function recurseReadDirectory(directory) {
   );
 }
 
-export default async function getSrcFilepaths(directory) {
+export default async function getSrcTokens(directory) {
   if (!fs.existsSync(directory)) {
     throw new Error(
       `A source directory doesn't exist at ${CWD}/${directory}\nYou can configure a custom source directory with the "srcDir" field in your ffluent config.`
     );
   }
-  const result = recurseReadDirectory(directory);
+  const result = recurseReadDirectory(directory, 1);
   // console.log(`Found ${result.length} files`);
   return result;
 }

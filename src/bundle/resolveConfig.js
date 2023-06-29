@@ -6,7 +6,9 @@ import {
 } from './consts.js';
 
 export default function resolveConfig(config) {
-  var { outputDir, outputFilename, title, srcDir } = config;
+  const { outputDir, outputFilename, title } = config;
+  let { srcDir } = config;
+
   const outputFilepath = path.resolve(
     outputDir ?? DEFAULT_OUT_DIR,
     outputFilename ?? (title && `${title}.fountain`) ?? DEFAULT_OUT_FILENAME

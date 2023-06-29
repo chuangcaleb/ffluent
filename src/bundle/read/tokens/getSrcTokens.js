@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import { CWD, META_FILENAME } from './consts.js';
-import processMeta from './processMeta.js';
-import readConfig from './read/config/readConfig.js';
+import { CWD, META_FILENAME } from '../../consts.js';
+import processMeta from './processByMeta.js';
+import readConfig from '../readConfig.js';
 
 function isValidSourceFile(dirent) {
   function hasValidExtension(filename, extension) {

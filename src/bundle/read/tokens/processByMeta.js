@@ -1,6 +1,6 @@
 import chalk from 'chalk';
-import { PRIORITY_PREFIX } from './consts.js';
-import { composeLocation } from './utils.js';
+import { PRIORITY_PREFIX } from '../../consts.js';
+import { composeLocation } from '../../utils.js';
 
 export default function processMeta(metaContent, dirents, metaPath) {
   /*

@@ -1,5 +1,4 @@
-import getSrcTokens from './getSrcTokens.js';
-import { getConfig, parseTokens } from './read/index.js';
+import { getConfig, getSrcTokens, parseTokens } from './read/index.js';
 import writeOutput from './write.js';
 
 export default async function bundle() {

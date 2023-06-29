@@ -35,9 +35,9 @@ export default function readConfig(dir, filename, isRequired = true) {
 
   try {
     if (ext === EXT.YAML)
-      return { content: YAML.load(textContent), path: configPath };
+      return { config: YAML.load(textContent), path: configPath };
     if (ext === EXT.JSON)
-      return { content: JSON.parse(textContent), path: configPath };
+      return { config: JSON.parse(textContent), path: configPath };
   } catch (err) {
     err.message += composeLocation(configPath);
     throw err;

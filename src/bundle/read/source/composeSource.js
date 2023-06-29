@@ -42,10 +42,10 @@ function recurseReadDirectory(directory, depth) {
     .readdirSync(directory, { withFileTypes: true })
     .filter(isValidSourceFile);
 
-  const metaConfig = readConfig(directory, META_FILENAME, false);
-  // If metaConfig doesn't exist, then just use everything
-  const processedDirents = metaConfig
-    ? processByMeta(metaConfig.content, dirents, metaConfig.path)
+  const metaFile = readConfig(directory, META_FILENAME, false);
+  // If metaFile doesn't exist, then just use everything found
+  const processedDirents = metaFile
+    ? processByMeta({ config: metaFile.config, path: metaFile.path }, dirents)
     : dirents;
 
   return (

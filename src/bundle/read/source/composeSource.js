@@ -1,37 +1,40 @@
 import fs from 'fs';
 import path from 'path';
-import { COVER_FILENAME, CWD, META_FILENAME, TOKENS } from '../../consts.js';
-import processByMeta from './processByMeta.js';
+import { COVER_FILENAME, CWD, META_FILENAME } from '../../consts.js';
 import readConfig from '../readConfig.js';
+import readFile from '../readFile.js';
+import processByMeta from './processByMeta.js';
 
 function isValidSourceFile(dirent) {
   function hasValidExtension(filename, extension) {
     return path.extname(filename).toLowerCase() === extension;
   }
+  // If dirent is a file, then it must be a .fountain file
   return !(dirent.isFile() && !hasValidExtension(dirent.name, '.fountain'));
 }
 
 function recurseReadDirectory(directory, depth) {
-  function recurse(dirent) {
-    const { name: dName, path: dPath } = dirent;
-    const { name: dNameBase } = path.parse(dName);
+  const composeSectionHeading = (title) => `${'#'.repeat(depth)} ${title}`;
 
-    const sectionTextToken = {
-      type: TOKENS.TEXT,
-      content: `${'#'.repeat(depth)} ${dNameBase}`,
-    };
+  function recurse(dirent) {
+    const { name: dName } = dirent;
 
     if (dirent.isDirectory()) {
       const directoryPath = path.resolve(directory, dName);
       return [
-        sectionTextToken,
+        composeSectionHeading(dName),
         ...recurseReadDirectory(directoryPath, depth + 1),
       ];
     }
+    const { path: dPath } = dirent;
+    const { name: dNameBase } = path.parse(dName);
 
+    // Else, is a file:
     return [
-      ...(dNameBase.toLowerCase() !== COVER_FILENAME ? [sectionTextToken] : []),
-      { type: TOKENS.FILE, content: path.resolve(dPath, dName) },
+      ...(dNameBase.toLowerCase() !== COVER_FILENAME
+        ? [composeSectionHeading(dNameBase)]
+        : []),
+      readFile(path.resolve(dPath, dName)).trim(),
     ];
   }
 
@@ -40,6 +43,7 @@ function recurseReadDirectory(directory, depth) {
     .filter(isValidSourceFile);
 
   const metaConfig = readConfig(directory, META_FILENAME, false);
+  // If metaConfig doesn't exist, then just use everything
   const processedDirents = metaConfig
     ? processByMeta(metaConfig.content, dirents, metaConfig.path)
     : dirents;
@@ -53,13 +57,11 @@ function recurseReadDirectory(directory, depth) {
   );
 }
 
-export default function getSrcTokens(directory) {
+export default function composeSource(directory) {
   if (!fs.existsSync(directory)) {
     throw new Error(
       `A source directory doesn't exist at ${CWD}/${directory}\nYou can configure a custom source directory with the "srcDir" field in your ffluent config.`
     );
   }
-  const result = recurseReadDirectory(directory, 1);
-  // console.log(`Found ${result.length} files`);
-  return result;
+  return recurseReadDirectory(directory, 1).join('\n\n');
 }

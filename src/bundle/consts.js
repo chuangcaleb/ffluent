@@ -17,5 +17,3 @@ export const LOG_LOCATION_PREFIX = '\n... @ ';
 
 export const EXT = { YAML: '.yaml', JSON: '.json' };
 export const CONFIG_EXTENSIONS = [EXT.YAML, EXT.JSON];
-
-export const TOKENS = { FILE: 'file', TEXT: 'text' };

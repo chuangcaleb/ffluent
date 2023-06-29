@@ -28,7 +28,7 @@ export default function processByMeta(metaContent, dirents, metaPath) {
 
       if (!dirent)
         throw new Error(
-          `A file was sequenced but doesn't exist, whose filename is "${name}", in a _meta configuration file` +
+          `"${name}" was sequenced in a "_meta" configuration file, but it does not exist in that _meta's folder` +
             composeLocation(metaPath)
         );
       return dirent;

@@ -237,4 +237,4 @@ The logo captures that initial image of streams flowing and converging into one 
 
 ### Contributing
 
-MIT License — tl;dr, forks and pull requests for anything at all are welcome! Contact me at `balechuang@gmail.com`.
+MIT License — tl;dr, forks and pull requests for anything at all are welcome! Contact me at `dev[at]chuangcaleb.com`.

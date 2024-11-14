@@ -6,7 +6,7 @@
 
  <br />
 
-> I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Do skip forward to parts that are relevant to you.
+> I expect the average `ffluent` user to be a non-technical screenwriter, so I'll go slowly in layman terms – this may just be exactly what you need! Skip forward to parts that are relevant to you.
 
 |**`ffluent` is a tool that automatically combines multiple smaller `.fountain` files.**|
 |-|
@@ -82,6 +82,9 @@ That is, instead of writing everything in one long `.fountain` file, it would sa
 
 ### Pre-requisites
 
+<details>
+<summary>Things you need to install before starting!</summary>
+
 <!-- You will need to understand the following before proceding:
 
 - [Fountain](https://www.markdownguide.org/getting-started/)
@@ -99,6 +102,8 @@ It is recommended that you use (and get used to) the following tools. You don't 
   - Usually used for coding, as for my day job. But it's so versatile.
 - [Better Fountain](https://marketplace.visualstudio.com/items?itemName=piersdeseilligny.betterfountain)
   - An extension for Visual Studio Code which supercharges it with features to boost the Fountain screenplays writing experience.
+
+</details>
 
 ### Quick Start
 
@@ -225,16 +230,18 @@ I found the word for this is **confluent**, defined as:
 
 **The purpose of `ffluent` is to bundle atomic files together into one main output file**, so this seemed like a fitting choice. [Peter Randall-Page's sculpture entitled "Fountain Confluence"](https://kusserusa.com/portfolio/confluence-brunnen) is exactly what I had envisioned in mind.
 
-But all the dictionary words are already trademarked names. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to simply "fluent".
+But all the related dictionary words of "confluence" are already trademarked brands. Besides, I've found out after a few candidates that three syllables is too long. So I've shortened it to: "**fluent**".
 
 This adds a second layer of connection: being "fluent" means to be highly skilled (in speaking a language), while screenplays are linguistic works.
 
-And finally, to add the connection with Fountain. I had candidates for project names, like "fountain-confluent" (the official verbose-name of the project) and "founfluent". But since "fluent" starts with an *F*, the same letter as "Fountain", I've elected to go for the simpler `ffluent`.
+And finally, to add the connection with Fountain. I had candidates for project names, like "fountain-confluent" (which is still the official verbose-name of the project) and "founfluent" (what a mouthful).
 
-Then, adding the extra "f" to `ffluent` also makes the project stand out amongst other similar-named projects and search engine results!
+But since "fluent" starts with an *F*, the same letter as "Fountain", I've elected to conclude with the simpler `ffluent`. Then, adding the extra "f" to `ffluent` also makes the project stand out amongst other similar-named projects and search engine results!
 
-The logo captures that initial image of streams flowing and converging into one main stream. It was clearer to see in the first design iteration, that the streams are actually back-to-back capital letter F's, where their bases converge. I also find myself preferring dividing my story and source directory into four main folders for the 4-act structure, so I actually have four streams converging into one main one!
+The logo captures that initial image of streams flowing and converging into one main stream. It was clearer to see in the first design iteration, that the streams are actually back-to-back capital letter F's, where their bases converge. I also find myself preferring dividing my story and source directory into four main folders for the 4-act structure, so I actually practice the illustrated four streams converging into one main one!
 
 ### Contributing
 
 MIT License — tl;dr, forks and pull requests for anything at all are welcome! Contact me at `dev[at]chuangcaleb.com`.
+
+<https://en.wikipedia.org/wiki/Unix_philosophy>

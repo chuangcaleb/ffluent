@@ -17,8 +17,9 @@ export default function processByMeta({ config, path }, dirents) {
       if (name[0] === PRIORITY_PREFIX)
         console.log(
           chalk.yellow(
-            `Warning: "${name}" was configured in a _meta file's sequence. Filenames prefixed with a "${PRIORITY_PREFIX}" character are automatically sequenced earlier.\nConsider removing this line of configuration if this was your intention.` +
-              composeLocation(path)
+            `Warning: "${name}" was configured in a _meta file's sequence. Filenames prefixed with a "${PRIORITY_PREFIX}" character are automatically sequenced earlier.\nConsider removing this line of configuration if this was your intention.${composeLocation(
+              path
+            )}\n`
           )
         );
 

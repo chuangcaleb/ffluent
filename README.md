@@ -213,7 +213,10 @@ Many paid proprietary tools offer version control/backups. As a programmer, we a
   - Made by the creator of Fountain itself. Features its own text editor app, WYSIWYG, "Revision Mode" and analysis tools. Since everything is wrapped in a nice bow, it's probably the best Fountain-writing app if you're not technical.
 - [Obsidian](https://obsidian.md/)
   - You can take the `ffluent` workflow even further with `[[ links ]]` to reference markdown notes. And then the idea is that you have `.fountain` files in your Obsidian workspace as notes themselves. Everything interlinks.
-  - Have yet to try this out, but I think this is the next step going forward.
+  - ~Have yet to try this out, but I think this is the next step going forward.~
+
+> [!tip]
+> You may be interested in my latest big project, [Obsidian Foutain Editor](http://github.com/chuangcaleb/obsidian-fountain-editor)!
 
 ## Why the name, "ffluent"?
 
